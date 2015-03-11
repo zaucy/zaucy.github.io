@@ -10,11 +10,12 @@
 				
 			</div>
 		</div>
+		<script src="https://cdn.rawgit.com/beautify-web/js-beautify/master/js/lib/beautify-html.js" type="application/javascript"></script>
 		<script src="https://cdn.rawgit.com/zaucy/js-scripts/master/browser-dom/cE/cE.min.js" type="application/javascript"></script>
 		<script>
 			var inputEl = document.getElementById("cE-input");
 			var resultsEl = document.getElementById("cE-results");
-			var sourceResultsEl = cE("div.source");
+			var sourceResultsEl = cE("pre.source");
 			var renderResultsEl = cE("div.render");
 			resultsEl.appendChild(sourceResultsEl);
 			resultsEl.appendChild(renderResultsEl);
@@ -36,7 +37,7 @@
 						renderResultsEl.appendChild(els);
 					}
 					
-					sourceResultsEl.textContent = src;
+					sourceResultsEl.textContent = html_beautify(src);
 					inputEl.classList.remove('error');
 				} catch(err) {
 					inputEl.classList.add('error');
