@@ -20,6 +20,10 @@
 			resultsEl.appendChild(sourceResultsEl);
 			resultsEl.appendChild(renderResultsEl);
 			
+			if(location.hash) {
+				inputEl.value = location.hash.substr(1);
+			}
+			
 			var bAdjustHeight = false;
 			
 			window.addEventListener("keydown", function(e) {
@@ -27,7 +31,11 @@
 				if(document.activeElement.id == inputEl.id) {
 					if(e.which == 9) {
 						e.preventDefault();
-						inputEl.value += '\t';
+						var selStart = inputEl.selectionStart;
+						var val = inputEl.value.substr(0, selStart) + '\t' + inputEl.value.substr(selStart);
+						inputEl.value = val;
+						inputEl.selectionStart = selStart+1;
+						inputEl.selectionEnd = selStart+1;
 					}
 				}
 			});
@@ -51,8 +59,10 @@
 					
 					sourceResultsEl.textContent = html_beautify(src);
 					inputEl.classList.remove('error');
+					location.hash = "#" + inputEl.value;
 				} catch(err) {
 					inputEl.classList.add('error');
+					location.hash = "";
 				}
 			}
 			
