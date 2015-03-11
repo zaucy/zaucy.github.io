@@ -5,7 +5,7 @@
 	</head>
 	<body>
 		<div id="wrap">
-			<input id="cE-input" type="text" value="h1'welcome'">
+			<textarea id="cE-input" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">h1'welcome'</textarea>
 			<div id="cE-results">
 				
 			</div>
@@ -19,6 +19,18 @@
 			var renderResultsEl = cE("div.render");
 			resultsEl.appendChild(sourceResultsEl);
 			resultsEl.appendChild(renderResultsEl);
+			
+			var bAdjustHeight = false;
+			
+			window.addEventListener("keydown", function(e) {
+				
+				if(document.activeElement.id == inputEl.id) {
+					if(e.which == 9) {
+						e.preventDefault();
+						inputEl.value += '\t';
+					}
+				}
+			});
 			
 			function updateResult() {
 				try {
@@ -46,7 +58,10 @@
 			
 			updateResult();
 			
-			inputEl.addEventListener("input", updateResult);
+			inputEl.addEventListener("input", function() {
+				updateResult();
+				inputEl.style.height = inputEl.scrollHeight - 20 + "px";
+			});
 		</script>
 	</body>
 </html>

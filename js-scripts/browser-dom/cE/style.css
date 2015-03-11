@@ -10,12 +10,14 @@ html, body {
 }
 
 #cE-input {
-  width: calc(100% - 32px);
+	min-width: calc(100% - 32px);
+  max-width: calc(100% - 32px);
   font-size: 150%;
   padding: 10px;
   color: grey;
 	margin-bottom: 16px;
 	border: 1px solid grey;
+	tab-size: 2;
 }
 
 #cE-input:focus {
