@@ -1,0 +1,45 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+#wrap {
+	max-width: 1024px;
+	margin: auto;
+	padding: 16px;
+}
+
+#cE-input {
+  width: calc(100% - 32px);
+  font-size: 150%;
+  padding: 10px;
+  color: grey;
+	margin-bottom: 16px;
+	border: 1px solid grey;
+}
+
+#cE-input:focus {
+	outline: none;
+}
+
+#cE-input.error {
+	background-color: rgb(255,235,235);
+}
+
+#cE-results .source,
+#cE-results .render {
+  display: inline-block;
+  width: calc(50% - 32px);
+  min-height: 250px;
+  vertical-align: top;
+  padding: 16px;
+}
+
+#cE-results .source {
+	font-family: monospace;
+	background-color: rgb(250, 250, 250);
+}
+
+#cE-results .render {
+	
+}
