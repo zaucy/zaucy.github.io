@@ -41,7 +41,7 @@
 					if(!els.nodeType) {
 						for(var n=0; els.length > n; n++) {
 							var el = els[n];
-							src += el.outerHTML;
+							src += el.outerHTML || el.textContent;
 							renderResultsEl.appendChild(el);
 						}
 					} else {
